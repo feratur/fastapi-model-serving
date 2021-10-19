@@ -44,7 +44,7 @@ async def get_predict(
         ca=ca,
         thal=thal,
     )])
-    return model.predict(batch).tolist()
+    return model.predict(batch).tolist()[0]
 
 
 @app.get("/predict_proba")
@@ -78,7 +78,7 @@ async def get_predict_proba(
         ca=ca,
         thal=thal,
     )])
-    return model.predict_proba(batch).tolist()
+    return model.predict_proba(batch).tolist()[0]
 
 
 @app.post("/predict")
